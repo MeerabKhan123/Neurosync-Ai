@@ -5,13 +5,14 @@ API keys are loaded from .env.
 """
 
 import os
+import streamlit as st
 from dotenv import load_dotenv
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
-HF_TOKEN = os.getenv("HF_TOKEN", "").strip()
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", os.getenv("GEMINI_API_KEY", "")).strip()
+OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY", "")).strip()
+HF_TOKEN = st.secrets.get("HF_TOKEN", os.getenv("HF_TOKEN", "")).strip()
 
 SYSTEM_PROMPT = (
     "You are a wellness assistant for the NeuroSync AI burnout analytics platform. "
