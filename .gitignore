@@ -1,0 +1,11 @@
+git status# Virtual Environment
+venv/
+.venv/
+env/
+
+# Secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
